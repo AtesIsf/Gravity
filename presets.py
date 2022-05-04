@@ -42,9 +42,9 @@ def earth_sun_moon(): # TODO
     )
 
     three = Body(
-        name="Moon", position=(750, 300),
-        color = (155, 155, 155), radius=5, mass=10 ** 8,
-        has_trail=True, velocity=(0, 400)
+        name="Moon", position=(725, 300),
+        color = (155, 155, 155), radius=5, mass=10 ** 9,
+        has_trail=True, velocity=(0,250)
     )
 
     return np.array((one, two, three)), None
