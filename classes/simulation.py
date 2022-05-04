@@ -3,13 +3,13 @@ import time
 from classes.physics import *
 
 class Simulation:
-    def __init__(self, bodies):
+    def __init__(self, bodies, size=(1000, 600)):
         pygame.init()
         pygame.font.init()
         self.font = pygame.font.SysFont("Arial", 20)
         pygame.display.set_caption("2D Gravity Simulation")
-        self.space = pygame.display.set_mode((1000, 600))
-        self.trans_space = pygame.Surface((1000, 600), pygame.SRCALPHA)
+        self.space = pygame.display.set_mode(size)
+        self.trans_space = pygame.Surface(size, pygame.SRCALPHA)
 
         self.bodies = bodies
         self.physics_engine = PhysicsEngine(bodies=bodies)

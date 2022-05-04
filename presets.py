@@ -12,7 +12,7 @@ def earth_sun():
         color=(0, 100, 0), radius=15, mass=10.0 ** 10,
         has_trail=True, velocity=(0, 250)
     )
-    return np.array((one, two))
+    return np.array((one, two)), None
 
 def two_planets():
     one = Body(
@@ -26,7 +26,7 @@ def two_planets():
         radius = 15, mass = 10 ** 15,
         has_trail=True,velocity=(0, 200)
     )
-    return np.array((one, two))
+    return np.array((one, two)), None
 
 def earth_sun_moon():
     one = Body(
@@ -46,4 +46,4 @@ def earth_sun_moon():
         has_trail=True, velocity=(100, 50)
     )
 
-    return np.array((one, two, three))
+    return np.array((one, two, three)), None
