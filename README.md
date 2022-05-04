@@ -1,6 +1,6 @@
 # Gravity
-Gravity Simulation-Physics Engine by Ats
-Based on: https://github.com/Tanmay-R-Choudhary/Gravity-Simulation
+* Gravity Simulation-Physics Engine by Ats
+* Based On: https://github.com/Tanmay-R-Choudhary/Gravity-Simulation
 
 # TODO
 * Implement light-bending engine:
