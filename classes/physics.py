@@ -26,11 +26,11 @@ class PhysicsEngine:
 
         # Net Force Calculation for each body
         for M in self.body_arr:
+            forces[M.name] = np.zeros(2)
             for m in self.body_arr:
                 if M.name == m.name:
                     continue
                 distance_comps = (M.position - m.position) * np.array((-1, -1))
-                forces[M.name] = np.zeros(2)
 
                 if magnitude(distance_comps) == 0:
                     pass
