@@ -1,6 +1,3 @@
-'''
-2D Gravity Simulation based on : https://github.com/Tanmay-R-Choudhary/Gravity-Simulation
-'''
 from presets import *
 from classes.simulation import *
 
