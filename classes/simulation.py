@@ -32,7 +32,25 @@ class Simulation:
             self.space.blit(self.trans_space, (0,0))
 
             for body in self.bodies:
+                for other in self.bodies:
+                    if other == body:
+                        pass
+                    else:
+                        has_collision = body.check_collision(other)
+                        if has_collision:
+                            pygame.draw.circle(
+                                surface=self.space,
+                                color=(255,91,20), radius=(np.random.rand()*body.radius)+1,
+                                center=body.position + np.random.rand()
+                            )
+                            pygame.draw.circle(
+                                surface=self.space, 
+                                color=(255,35,35), radius=(np.random.rand()*body.radius)+1,
+                                center=body.position + np.random.rand()
+                            )
+
                 body.draw(self.space, self.trans_space, self.font)
+                has_collision = False
 
             for body in self.bodies:
                 body.move()

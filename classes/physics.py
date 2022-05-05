@@ -9,7 +9,7 @@ def unit_vector(vec):
     for i in vec:
         i/=mag
     return np.array(vec)
-
+    
 class PhysicsEngine:
     
     def __init__(self, bodies):

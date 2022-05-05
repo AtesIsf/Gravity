@@ -1,4 +1,4 @@
-from turtle import pos
+import math
 import numpy as np
 import pygame
 
@@ -20,6 +20,7 @@ class Body:                                                                     
         else:
             self.trail_color = np.append(np.array(trail_color), 100)
         self.text_color = text_color
+        self.destroyed = False
 
         # Create empty vectors
         self.velocity = np.array(velocity, dtype="float64")
@@ -37,6 +38,8 @@ class Body:                                                                     
             self.name = name
 
     def draw(self, surface, space, font):
+        if self.destroyed:
+            return
         pygame.draw.circle(surface, self.color, (self.position), self.radius, self.perimeter)
         if self.has_trail == True:
             pygame.draw.circle(space, self.trail_color, self.position, 3, 6)
@@ -44,6 +47,24 @@ class Body:                                                                     
         surface.blit(text_surface, self.position + np.array((0, self.radius)))
 
     def move(self):
+        if self.destroyed:
+            return
         self.velocity += (self.force / self.mass) * TIME_STEP # v = u + at
         self.position += self.velocity * TIME_STEP # s = vt
         print(f"{self.name}: [{self.velocity[0]}, {self.velocity[1] * -1}]")
+
+    def check_collision(self, other):
+        collision = False
+        distance_vec = self.position-other.position
+        distance = math.sqrt(distance_vec[0]**2 + distance_vec[1]**2)
+
+        if distance <= (self.radius + other.radius):
+            collision = True
+            if self.radius == other.radius:
+                self.destroyed = True
+                other.destroyed = True
+            elif self.radius > other.radius:
+                other.destroyed = True
+            elif other.radius > self.radius:
+                self.destroyed = True
+        return collision            

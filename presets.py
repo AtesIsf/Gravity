@@ -141,9 +141,23 @@ def asteroid():
     )
 
     four = Body(
-        name="Asteroid II", position=(350, 0),
+        name="Asteroid II", position=(325, 0),
         color=(155, 155, 155), radius=5, mass = 10 ** 8,
-        velocity=(-50, 200)
+        velocity=(-25, 200)
     )
 
     return np.array((one, two, three, four)), size
+
+def still_two_planets():
+    
+    one = Body(
+        position=(700, 300), color=(0, 155, 0),
+        radius=15, mass=10**16
+    )
+
+    two = Body(
+        position=(300, 300), color=(0, 00, 155),
+        radius=15, mass=10**16
+    )
+
+    return np.array((one, two)), None
