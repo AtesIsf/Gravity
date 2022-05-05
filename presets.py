@@ -143,7 +143,7 @@ def asteroid():
     four = Body(
         name="Asteroid II", position=(350, 0),
         color=(155, 155, 155), radius=5, mass = 10 ** 8,
-        velocity=(0, 200)
+        velocity=(-50, 200)
     )
 
     return np.array((one, two, three, four)), size
