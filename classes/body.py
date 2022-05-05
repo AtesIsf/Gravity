@@ -7,7 +7,7 @@ TIME_STEP = 0.0005
 used_names = []
 
 class Body:                                                                         # Random capital letter
-    def __init__(self, position, mass, color, has_trail = False, trail_color = None, radius=5, name=None, velocity = (0.0, 0.0), text_color = (255, 255, 255)):
+    def __init__(self, position, mass, color, has_trail = True, trail_color = None, radius=5, name=None, velocity = (0.0, 0.0), text_color = (255, 255, 255)):
         # Assign parameters
         self.position =np.array(position, dtype="float64")
         self.mass = mass
@@ -46,4 +46,4 @@ class Body:                                                                     
     def move(self):
         self.velocity += (self.force / self.mass) * TIME_STEP # v = u + at
         self.position += self.velocity * TIME_STEP # s = vt
-        print(f"{self.name} : [{self.velocity[0]}, {self.velocity[1]* -1}]")
+        print(f"{self.name}: [{self.velocity[0]}, {self.velocity[1] * -1}]")

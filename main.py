@@ -8,10 +8,13 @@ def check_size(size):
         result = size
     return result
 
-bodies, size = earth_sun()
+# bodies, size = earth_sun()
 # bodies, size = earth_sun_moon()
-# bodies, size = two_planets()
-# bodies, size = two_planet_system()
+# bodies, size = two_planets()
+# bodies, size = cool_two_planet_system()
+# bodies, size = simple_two_planet_system()
+# bodies, size = three_planet_system()
+bodies, size = asteroid()
 
 sim = Simulation(bodies=bodies, size=check_size(size))
 sim.show_env()
