@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 magnitude = lambda  arr : np.sqrt((arr[0] ** 2) + (arr[1] ** 2))
 
@@ -9,7 +8,7 @@ def unit_vector(vec):
     for i in vec:
         i/=mag
     return np.array(vec)
-    
+
 class PhysicsEngine:
     
     def __init__(self, bodies):

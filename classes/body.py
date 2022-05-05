@@ -1,6 +1,7 @@
 import math
 import numpy as np
 import pygame
+import time
 
 TIME_STEP = 0.0005
 
@@ -13,6 +14,7 @@ class Body:                                                                     
         self.mass = mass
         self.color = color
         self.radius = radius
+        self.life = radius # * 2000
         self.perimeter = self.radius * 2
         self.has_trail = has_trail
         if trail_color == None:
@@ -48,10 +50,11 @@ class Body:                                                                     
 
     def move(self):
         if self.destroyed:
-            return
-        self.velocity += (self.force / self.mass) * TIME_STEP # v = u + at
-        self.position += self.velocity * TIME_STEP # s = vt
-        print(f"{self.name}: [{self.velocity[0]}, {self.velocity[1] * -1}]")
+            self.life -= 1
+        if self.life > 0:
+            self.velocity += (self.force / self.mass) * TIME_STEP # v = u + at
+            self.position += self.velocity * TIME_STEP # s = vt
+            print(f"{self.name}: [{self.velocity[0]}, {self.velocity[1] * -1}]")
 
     def check_collision(self, other):
         collision = False
